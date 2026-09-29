@@ -1,0 +1,78 @@
+[project]
+name = "vozcoqui"
+version = "2.1.2"
+description = "A simple CustomTkinter UI/UX to use TTS to generate audio media for your projects"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "coqui-tts[codec]>=0.27.5",
+    "customtkinter>=6.0.0",
+    "torch>=2.14.0",
+    "torchaudio>=2.11.0",
+    "transformers>=4.57,<5.0.0",
+    "psutil>=6.0.0",
+    "pyinstaller>=6.22.3",
+]
+
+[project.scripts]
+vozcoqui = "main:main"
+
+[project.optional-dependencies]
+dev = [
+    "pyinstaller>=6.0.0",
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+]
+
+[[tool.uv.index]]
+url = "https://download.pytorch.org/whl/cpu"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.pyinstaller]
+name = "TTS_Engine_Studio"
+onefile = true
+windowed = true
+icon = "assets/icon.ico"
+add-data = [
+    "models/*;models/",
+    "config.json;.",
+    "mi_voz.wav;.",
+]
+hidden-imports = [
+    "TTS",
+    "TTS.api",
+    "TTS.tts",
+    "TTS.vocoder",
+    "TTS.utils",
+    "coqui_tts",
+    "torch",
+    "torchaudio",
+    "transformers",
+    "customtkinter",
+    "psutil",
+    "numpy",
+    "scipy",
+    "librosa",
+    "soundfile",
+    "numba",
+    "phonemizer",
+    "unidecode",
+    "inflect",
+    "tokenizers",
+    "huggingface_hub",
+    "safetensors",
+    "einops",
+    "rotary_embedding_torch",
+    "xformers",
+    "speechbrain",
+    "pydub",
+]
+exclude-modules = [
+    "tkinter.test",
+    "pdb",
+    "doctest",
+]
+upx = false

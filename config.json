@@ -1,0 +1,10 @@
+{
+    "theme": "Dark",
+    "output_dir": "/home/guillermo/Documentos/vozcoqui/output",
+    "language": "es",
+    "accent": "es-CO",
+    "mode": "clone",
+    "speaker": "Henriette Usha",
+    "reference_audio": "/home/guillermo/Documentos/vozcoqui/mi_voz.wav",
+    "window_geometry": "1600x1011+42+61"
+}
